@@ -6,5 +6,9 @@ namespace Library
     {
         public string FullName { get; set; }
         public ICollection<Book> Books { get; set; }
+        public Author()
+        {
+            Books = null;
+        }
     }
 }

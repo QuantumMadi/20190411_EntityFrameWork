@@ -31,24 +31,49 @@ namespace Library
             {
                 FullName = "J.London",
             };
-            #endregion
-
-            #region books
-            var book = new Book
+            var author6 = new Author
             {
-                Name = "Graf Monte Cristo",
-                Authors = {author4},               
+                FullName = "L.Tolstoy",
             };
             #endregion
 
-            //List<Book> books = new List<Book>
-            //{
-            //    new Book = 
-            //};
+            #region books
+            var book = new Book();
+            book.Name = "Graf Monte Crysto";
+            book.Authors.Add(author4);
 
-            va
+            var book1 = new Book
+            {
+                Name = "World and war",
+                Authors = { author6 },
+            };
+            var book2 = new Book
+            {
+                Name = "Stone guest",
+                Authors = {author},
+            };
+            author4.Books.Add(book);
+            author6.Books.Add(book1);
+            author.Books.Add(book2);
+            #endregion
 
-            var context = new AppContext();
+            #region users
+            
+            
+            #endregion
+                   
+            using (var context = new AppContext())
+            {
+                context.Books.AddRange(new List<Book>() { book, book1, book2 });
+                context.Authors.AddRange(new List<Author>() { author, author2, author3, author4, author5, author6 });
+                context.Users.AddRange(new List<User>() {
+                    new User("Madi", 
+                    new List<Book>() { book }, DateTime.Today),
+                    new User("Aslan", new List<Book>() { book, book1 }, 
+                    new DateTime(2018, 12, 30)) });
+            }
+
+            //var context = new AppContext();
         }
     }
 }
