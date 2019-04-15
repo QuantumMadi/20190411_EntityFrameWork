@@ -1,0 +1,9 @@
+﻿основные команды Миграций:
+enable-migrations
+add-migrations "Name of migration"
+upgrade-database
+
+
+Eager Loading - используем при загрузки сущности Include ("Навигационное свойство")
+Lazy loading Ленивая загрузка - указание навигационному свойству virtual работает только внутри using
+Explicit loading Явная загрузка - context.Entry(загр.Сущность).reference("Property name").Load();
